@@ -52,6 +52,19 @@ void operatorControl()
 
 			clawSet(joystickGetAnalog(1, 4));
 
+			if(joystickGetDigital(1, 6, JOY_UP))
+				{
+			      liftSet(127); // pressing up, so lift should go up
+		    }
+			    else if(joystickGetDigital(1, 6, JOY_DOWN))
+					{
+			      liftSet(-127); // pressing down, so lift should go down
+			    }
+			    else
+					{
+			      liftSet(0); // no buttons are pressed, stop the lift
+			    }
+
 			delay(20);
 		}
 }

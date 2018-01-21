@@ -28,6 +28,7 @@
 #include <API.h>
 #include "chassis.h" //added this line
 #include "claw.h" //added this line too
+#include "lift.h" //then I added this line
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
@@ -53,15 +54,10 @@ extern "C" {
  * The autonomous task may exit, unlike operatorControl() which should never exit. If it does
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
-void autonomous();
-/**
- * Runs pre-initialization code. This function will be started in kernel mode one time while the
- * VEX Cortex is starting up. As the scheduler is still paused, most API functions will fail.
- *
- * The purpose of this function is solely to set the default pin modes (pinMode()) and port
- * states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely
- * configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
- */
+void autonomous()
+{
+
+}
 void initializeIO();
 /**
  * Runs user initialization code. This function will be started in its own task with the default
