@@ -54,10 +54,8 @@ extern "C" {
  * The autonomous task may exit, unlike operatorControl() which should never exit. If it does
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
-void autonomous()
-{
+void autonomous();
 
-}
 void initializeIO();
 /**
  * Runs user initialization code. This function will be started in its own task with the default

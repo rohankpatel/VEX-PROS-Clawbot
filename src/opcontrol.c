@@ -43,27 +43,40 @@ void operatorControl()
 		int power, turn;
 		while(1)
 		{
-			power = joystickGetAnalog(1, 2); //vertical axis right joystick
-			turn = joystickGetAnalog(1, 1); //horizontal axis right joystick
+			power = joystickGetAnalog(1, 3); //vertical axis left joystick
+			turn = joystickGetAnalog(1, 4); //horizontal axis left joystick
 			/* motorSet(2, power + turn); //left wheels
 			* motorSet(3, power - turn); //right wheels
 			*/
 			chassisSet(power + turn, power - turn); //left and right wheels
 
-			clawSet(joystickGetAnalog(1, 4));
+//Claw
+			if(joystickGetDigital(1, 5, JOY_UP))
+				{
+			      clawSet(127); // pressing up, so claw should go out
+		    }
+			else if(joystickGetDigital(1, 5, JOY_DOWN))
+		  	{
+			      clawSet(-127); // pressing down, so claw should go in
+			  }
+			else
+				{
+				   clawSet(0); // no buttons are pressed, stop the lift
+				}
 
+//Lift
 			if(joystickGetDigital(1, 6, JOY_UP))
 				{
 			      liftSet(127); // pressing up, so lift should go up
 		    }
-			    else if(joystickGetDigital(1, 6, JOY_DOWN))
-					{
+			else if(joystickGetDigital(1, 6, JOY_DOWN))
+		  	{
 			      liftSet(-127); // pressing down, so lift should go down
-			    }
-			    else
-					{
+			  }
+			else
+				{
 			      liftSet(0); // no buttons are pressed, stop the lift
-			    }
+			  }
 
 			delay(20);
 		}

@@ -3,5 +3,5 @@
 
 void liftSet(int liftSpeed)
 {
-  motorSet(8, liftSpeed);
+  motorSet(8, -liftSpeed);
 }
